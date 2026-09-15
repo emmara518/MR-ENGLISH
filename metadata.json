@@ -1,0 +1,6 @@
+{
+  "name": "MR-ENGLISH",
+  "description": "Premium English language learning platform by Mr. Mohamed Abdelghaffar. Build a brighter you with practical English and real skills.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
