@@ -13,7 +13,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
 }) => {
   return (
     <div
-      className="flex items-center space-x-1.5 overflow-x-auto pb-2 scrollbar-none no-scrollbar"
+      className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none no-scrollbar"
       id="category-tabs-container"
     >
       {categories.map((category) => {
@@ -21,7 +21,7 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
         return (
           <button
             key={category}
-            id={`tab-${category.toLowerCase().replace(/\s+/g, '-')}`}
+            id={`tab-${category}`}
             onClick={() => onSelectCategory(category)}
             className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
               isActive

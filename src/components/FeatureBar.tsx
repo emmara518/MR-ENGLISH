@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, TrendingUp, Award, Users, ArrowRight } from 'lucide-react';
+import { BookOpen, FileText, TrendingUp, Award, Users, ArrowLeft } from 'lucide-react';
 import { platformFeatures } from '../data/mockData';
 import { PlatformFeature } from '../types';
 
@@ -54,18 +54,18 @@ export const FeatureBar: React.FC<FeatureBarProps> = ({ onJoinClick, onFeatureCl
           className="relative bg-[#16232E] hover:bg-[#1D2D3B] text-white rounded-2xl p-5 overflow-hidden shadow-lg flex items-center justify-between cursor-pointer transition-all hover:scale-[1.01]"
         >
           {/* Watermark in background */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 font-black text-xs tracking-widest text-white/5 uppercase select-none pointer-events-none text-right leading-tight">
-            LEARN<br />PRACTICE<br />BELONG
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 font-black text-xs tracking-widest text-white/5 uppercase select-none pointer-events-none text-left leading-tight">
+            اتعلم<br />اتدرب<br />انتمي
           </div>
 
-          <div className="flex items-center space-x-4 relative z-10">
+          <div className="flex items-center gap-4 relative z-10">
             {/* Lime Circle Button */}
             <div className="w-10 h-10 rounded-full bg-[#C6D94E] flex items-center justify-center shrink-0 shadow-md">
-              <ArrowRight className="w-5 h-5 text-[#16232E] stroke-[2.5]" />
+              <ArrowLeft className="w-5 h-5 text-[#16232E] stroke-[2.5]" />
             </div>
 
             <p className="text-xs sm:text-sm font-medium text-slate-200 leading-snug max-w-[240px]">
-              Join thousands of students who are building a brighter future with{' '}
+              انضم لآلاف الطلاب اللي بيبنوا مستقبل ألمع مع{' '}
               <strong className="text-white font-bold">MR-ENGLISH</strong>.
             </p>
           </div>

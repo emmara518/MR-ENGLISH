@@ -1,6 +1,6 @@
 {
   "name": "MR-ENGLISH",
-  "description": "Premium English language learning platform by Mr. Mohamed Abdelghaffar. Build a brighter you with practical English and real skills.",
+  "description": "منصة تعليم الإنجليزية المميزة بإشراف مستر محمد عبد الغفار. ابنِ مستقبلاً ألمع بإنجليزي عملي ومهارات حقيقية.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

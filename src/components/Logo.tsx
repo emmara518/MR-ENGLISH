@@ -23,7 +23,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', isDark = false, size
           isDark ? 'text-slate-400' : 'text-[#52616B]'
         }`}
       >
-        LEARN • PRACTICE • BELONG
+        اتعلم • اتدرب • انتمي
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="bg-[#16232E] text-white pt-14 pb-12 px-4 sm:px-6 lg:px-8 border-t border-white/10" id="main-footer">
+    <footer className="bg-[#16232E] text-white pt-14 pb-12 px-4 sm:px-6 lg:px-8 border-t border-white/10 text-right" id="main-footer">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10">
           
@@ -15,37 +15,37 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="md:col-span-5 space-y-4">
             <Logo isDark size="lg" />
             <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed mt-2">
-              Premium English learning designed for real conversational confidence, career acceleration, and academic excellence under the direct mentorship of Mr. Mohamed Abdelghaffar.
+              تعليم إنجليزي مميز مصمم لثقة حقيقية في المحادثة وتسريع الكارير والتفوق الأكاديمي تحت الإشراف المباشر من مستر محمد عبد الغفار.
             </p>
-            <div className="pt-2 text-xs font-semibold text-[#C6D94E]">
-              Same Language. A Bigger Tomorrow.
+            <div className="pt-2 text-xs font-bold text-[#C6D94E]">
+              نفس اللغة. مستقبل أكبر.
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400">
-              Platform
+            <h4 className="text-xs font-bold tracking-widest text-slate-400">
+              المنصة
             </h4>
             <ul className="space-y-2 text-xs font-semibold text-slate-300">
               <li>
                 <button onClick={() => onNavigate('courses')} className="hover:text-white transition-colors">
-                  All Courses
+                  كل الكورسات
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('plans')} className="hover:text-white transition-colors">
-                  Membership Plans
+                  خطط الاشتراك
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('about')} className="hover:text-white transition-colors">
-                  About Mr. Mohamed
+                  عن مستر محمد
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('blog')} className="hover:text-white transition-colors">
-                  Articles & Lessons
+                  مقالات ودروس
                 </button>
               </li>
             </ul>
@@ -53,34 +53,34 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Learning Focus */}
           <div className="md:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400">
-              Curriculum
+            <h4 className="text-xs font-bold tracking-widest text-slate-400">
+              المناهج
             </h4>
             <ul className="space-y-2 text-xs font-semibold text-slate-300">
-              <li>Beginner Foundations</li>
-              <li>English Grammar</li>
-              <li>Real Life Conversations</li>
-              <li>IELTS Examination Prep</li>
-              <li>Business Communication</li>
+              <li>تأسيس المبتدئين</li>
+              <li>جرامر الإنجليزية</li>
+              <li>محادثات واقعية</li>
+              <li>تحضير امتحان IELTS</li>
+              <li>إنجليزي البيزنس</li>
             </ul>
           </div>
 
           {/* Contact / Newsletter */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400">
-              Stay Connected
+            <h4 className="text-xs font-bold tracking-widest text-slate-400">
+              خليك متابع
             </h4>
             <p className="text-xs text-slate-400">
-              Receive weekly practical English tips and new lesson releases.
+              استلم نصايح إنجليزي عملية أسبوعية وجديد الدروس.
             </p>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-[#C6D94E]"
+                placeholder="اكتب إيميلك"
+                className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-[#C6D94E] text-right"
               />
               <button className="px-4 py-2 bg-[#C6D94E] text-[#16232E] text-xs font-bold rounded-xl shrink-0 hover:bg-[#B8CC42] transition-colors">
-                Join
+                اشترك
               </button>
             </div>
           </div>
@@ -88,11 +88,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© {new Date().getFullYear()} MR-ENGLISH. All rights reserved. Directed by Mr. Mohamed Abdelghaffar.</p>
-          <div className="flex space-x-6">
-            <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#support" className="hover:text-white transition-colors">Student Support</a>
+          <p>© {new Date().getFullYear()} MR-ENGLISH. جميع الحقوق محفوظة. بإشراف مستر محمد عبد الغفار.</p>
+          <div className="flex gap-6">
+            <a href="#privacy" className="hover:text-white transition-colors">سياسة الخصوصية</a>
+            <a href="#terms" className="hover:text-white transition-colors">الشروط والأحكام</a>
+            <a href="#support" className="hover:text-white transition-colors">دعم الطلاب</a>
           </div>
         </div>
       </div>

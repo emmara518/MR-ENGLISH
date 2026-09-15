@@ -22,8 +22,8 @@ export const tokens = {
     pill: '9999px',
   },
   typography: {
-    fontSans: "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
-    fontHandwriting: "'Caveat', cursive",
+    fontSans: "'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
+    fontHandwriting: "'Cairo', sans-serif",
   },
   shadows: {
     subtle: '0 2px 8px -2px rgba(22, 35, 46, 0.05), 0 1px 4px -1px rgba(22, 35, 46, 0.03)',

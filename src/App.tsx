@@ -44,21 +44,26 @@ export default function App() {
     } else if (sectionId === 'about') {
       setSelectedCourse(coursesData[0]);
     } else {
-      showToast(`Navigating to ${sectionId.toUpperCase()}...`);
+      const labels: Record<string, string> = {
+        plans: 'خطط الأسعار',
+        blog: 'المقالات',
+        contact: 'تواصل معنا',
+      };
+      showToast(`جاري الانتقال إلى ${labels[sectionId] || sectionId}...`);
     }
   };
 
   const handleFeatureClick = (feat: PlatformFeature) => {
-    showToast(`Exploring ${feat.title}`);
+    showToast(`استكشف ${feat.title}`);
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F6F4] text-[#16232E] relative selection:bg-[#C6D94E] selection:text-[#16232E]">
+    <div dir="rtl" className="min-h-screen bg-[#F5F6F4] text-[#16232E] relative selection:bg-[#C6D94E] selection:text-[#16232E]">
       
       {/* Top Banner */}
-      <div className="bg-[#16232E] text-white text-[11px] py-1.5 px-4 text-center font-medium flex items-center justify-center space-x-2">
+      <div className="bg-[#16232E] text-white text-[11px] py-1.5 px-4 text-center font-medium flex items-center justify-center gap-2">
         <span className="w-2 h-2 rounded-full bg-[#C6D94E] animate-pulse" />
-        <span>MR-ENGLISH Official Platform • Mr. Mohamed Abdelghaffar</span>
+        <span>منصة MR-ENGLISH الرسمية • مستر محمد عبد الغفار</span>
       </div>
 
       {/* Main Navigation Header */}
@@ -75,7 +80,7 @@ export default function App() {
           onStartLearning={() => handleOpenAuth('register')}
           onWatchVideo={() => setIsVideoModalOpen(true)}
           onInstructorClick={() => {
-            showToast(`Instructor: ${instructorData.name} (${instructorData.studentsCount.toLocaleString()}+ students)`);
+            showToast(`المدرس: ${instructorData.name} (+${instructorData.studentsCount.toLocaleString('ar-EG')} طالب)`);
           }}
         />
 
@@ -105,7 +110,7 @@ export default function App() {
         onClose={() => setSelectedCourse(null)}
         onEnroll={(course) => {
           setSelectedCourse(null);
-          showToast(`Enrolled in "${course.title}". Welcome aboard!`);
+          showToast(`تم الاشتراك في "${course.title}". أهلاً بيك!`);
         }}
       />
 
@@ -122,13 +127,13 @@ export default function App() {
         initialMode={authModalState.mode}
         onClose={handleCloseAuth}
         onSuccess={(email) => {
-          showToast(`Logged in as ${email}`);
+          showToast(`تم تسجيل الدخول باسم ${email}`);
         }}
       />
 
       {/* Interactive Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-[#16232E] text-white px-5 py-2.5 rounded-full shadow-2xl border border-[#C6D94E]/40 text-xs font-semibold flex items-center space-x-2 animate-in fade-in slide-in-from-bottom-2">
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-[#16232E] text-white px-5 py-2.5 rounded-full shadow-2xl border border-[#C6D94E]/40 text-xs font-semibold flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2">
           <span className="w-2 h-2 rounded-full bg-[#C6D94E]" />
           <span>{toastMessage}</span>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen } from 'lucide-react';
 import { Course } from '../types';
+import { categoryMapEnToAr, levelMapEnToAr } from '../data/mockData';
 
 interface CourseCardProps {
   course: Course;
@@ -33,28 +34,31 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, onSelectCourse }
       </div>
 
       {/* Course Information */}
-      <div className="p-4 flex-1 flex flex-col justify-between">
+      <div className="p-4 flex-1 flex flex-col justify-between text-right">
         <div>
           {/* Category Badge */}
           <span className="inline-block px-2.5 py-0.5 text-[11px] font-bold text-[#16232E] bg-[#E9EEF0] rounded-full mb-2">
-            {course.category}
+            {categoryMapEnToAr[course.category] || course.category}
           </span>
 
           {/* Title */}
           <h3 className="text-sm sm:text-base font-bold text-[#16232E] group-hover:text-[#16232E] leading-snug line-clamp-2">
             {course.title}
           </h3>
+          <p className="text-[11px] text-[#52616B] font-medium mt-1">
+            {levelMapEnToAr[course.level] || course.level}
+          </p>
         </div>
 
         {/* Card Footer: Lessons count & Action button */}
         <div className="flex items-center justify-between pt-3 mt-2 border-t border-[#F5F6F4]">
-          <div className="flex items-center space-x-1.5 text-xs text-[#52616B] font-medium">
+          <div className="flex items-center gap-1.5 text-xs text-[#52616B] font-medium">
             <BookOpen className="w-3.5 h-3.5 text-[#52616B]" />
-            <span>{course.lessonsCount} Lessons</span>
+            <span>{course.lessonsCount} درس</span>
           </div>
 
-          <div className="w-7 h-7 rounded-full bg-[#F5F6F4] group-hover:bg-[#C6D94E] flex items-center justify-center transition-all group-hover:translate-x-0.5">
-            <ArrowRight className="w-3.5 h-3.5 text-[#16232E] stroke-[2.5]" />
+          <div className="w-7 h-7 rounded-full bg-[#F5F6F4] group-hover:bg-[#C6D94E] flex items-center justify-center transition-all">
+            <ArrowLeft className="w-3.5 h-3.5 text-[#16232E] stroke-[2.5]" />
           </div>
         </div>
       </div>

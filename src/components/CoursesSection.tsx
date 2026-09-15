@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { coursesData, categoriesList } from '../data/mockData';
+import { coursesData, categoriesList, categoryMapArToEn, categoryMapEnToAr } from '../data/mockData';
 import { Course, PlatformFeature } from '../types';
 import { BrandStatement } from './BrandStatement';
 import { CategoryTabs } from './CategoryTabs';
@@ -18,13 +18,14 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({
   onJoinPlatform,
   onFeatureClick,
 }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('All Courses');
+  const [activeCategory, setActiveCategory] = useState<string>('كل الكورسات');
   const [pageIndex, setPageIndex] = useState(0);
 
-  // Filter courses by category
+  // Filter courses by category (يدعم العربي والإنجليزي للتوافق مع الباك إند)
   const filteredCourses = coursesData.filter((c) => {
-    if (activeCategory === 'All Courses') return true;
-    return c.category.toLowerCase() === activeCategory.toLowerCase();
+    if (activeCategory === 'كل الكورسات' || activeCategory === 'All Courses') return true;
+    const enCategory = categoryMapArToEn[activeCategory] || activeCategory;
+    return c.category.toLowerCase() === enCategory.toLowerCase();
   });
 
   // Calculate pages for desktop 4-card slider
@@ -58,35 +59,35 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({
           
           {/* Header Row & Controls */}
           <div>
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 text-right">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#16232E] tracking-tight">
-                  Explore Our Courses
+                  استكشف كورساتنا
                 </h2>
                 <p className="text-xs sm:text-sm text-[#52616B] font-medium mt-1">
-                  Structured learning paths designed to help you reach your goals.
+                  مسارات تعلم منظمة مصممة عشان توصلك لهدفك.
                 </p>
               </div>
 
               {/* Navigation Arrows */}
-              <div className="flex items-center space-x-2 shrink-0">
+              <div className="flex items-center gap-2 shrink-0">
                 <button
                   id="courses-prev-btn"
                   onClick={handlePrevPage}
                   disabled={pageIndex === 0}
                   className="w-8 h-8 rounded-full border border-[#E5EAE8] bg-white hover:bg-[#F5F6F4] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center text-[#16232E] transition-colors"
-                  aria-label="Previous courses"
+                  aria-label="الكورسات السابقة"
                 >
-                  <ChevronLeft className="w-4 h-4 stroke-[2.2]" />
+                  <ChevronRight className="w-4 h-4 stroke-[2.2]" />
                 </button>
                 <button
                   id="courses-next-btn"
                   onClick={handleNextPage}
                   disabled={pageIndex >= maxPage}
                   className="w-8 h-8 rounded-full border border-[#E5EAE8] bg-white hover:bg-[#F5F6F4] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center text-[#16232E] transition-colors"
-                  aria-label="Next courses"
+                  aria-label="الكورسات التالية"
                 >
-                  <ChevronRight className="w-4 h-4 stroke-[2.2]" />
+                  <ChevronLeft className="w-4 h-4 stroke-[2.2]" />
                 </button>
               </div>
             </div>

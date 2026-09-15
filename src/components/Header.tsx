@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ArrowRight, Menu, X } from 'lucide-react';
+import { Search, ArrowLeft, Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 
 interface HeaderProps {
@@ -18,12 +18,12 @@ export const Header: React.FC<HeaderProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Courses', id: 'courses' },
-    { label: 'Plans', id: 'plans' },
-    { label: 'About', id: 'about' },
-    { label: 'Blog', id: 'blog' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'الرئيسية', id: 'home' },
+    { label: 'الكورسات', id: 'courses' },
+    { label: 'خطط الأسعار', id: 'plans' },
+    { label: 'عن المستر', id: 'about' },
+    { label: 'المقالات', id: 'blog' },
+    { label: 'تواصل معنا', id: 'contact' },
   ];
 
   return (
@@ -56,14 +56,14 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Right: Actions */}
-        <div className="flex items-center space-x-2 sm:space-x-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Search Button */}
           <button
             id="header-search-button"
             onClick={onOpenSearch}
             className="w-9 h-9 rounded-full flex items-center justify-center text-[#16232E] bg-[#F5F6F4] hover:bg-[#E9EEF0] transition-colors"
-            title="Search courses and lessons"
-            aria-label="Search"
+            title="ابحث في الكورسات والدروس"
+            aria-label="بحث"
           >
             <Search className="w-4 h-4 text-[#16232E]" />
           </button>
@@ -74,17 +74,17 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => onOpenAuth('login')}
             className="hidden sm:inline-flex px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#16232E] bg-[#F5F6F4] hover:bg-[#E9EEF0] transition-colors"
           >
-            Log In
+            تسجيل الدخول
           </button>
 
           {/* Start Learning Primary CTA */}
           <button
             id="header-start-learning-button"
             onClick={() => onOpenAuth('register')}
-            className="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-[#16232E] bg-[#C6D94E] hover:bg-[#B8CC42] shadow-xs transition-all transform active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-[#16232E] bg-[#C6D94E] hover:bg-[#B8CC42] shadow-xs transition-all transform active:scale-95 cursor-pointer"
           >
-            <span>Start Learning</span>
-            <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span>ابدأ التعلم</span>
+            <ArrowLeft className="w-3.5 h-3.5 stroke-[2.5]" />
           </button>
 
           {/* Hamburger Menu on Mobile */}
@@ -101,7 +101,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 bg-white rounded-2xl shadow-xl border border-[#E5EAE8] p-4 flex flex-col space-y-2 animate-in fade-in slide-in-from-top-2">
+        <div className="md:hidden mt-2 bg-white rounded-2xl shadow-xl border border-[#E5EAE8] p-4 flex flex-col gap-2 animate-in fade-in slide-in-from-top-2">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -109,12 +109,12 @@ export const Header: React.FC<HeaderProps> = ({
                 onNavigateSection(item.id);
                 setMobileMenuOpen(false);
               }}
-              className="text-left px-3 py-2 rounded-xl text-sm font-semibold text-[#16232E] hover:bg-[#F5F6F4]"
+              className="text-right px-3 py-2 rounded-xl text-sm font-semibold text-[#16232E] hover:bg-[#F5F6F4]"
             >
               {item.label}
             </button>
           ))}
-          <div className="pt-2 border-t border-[#E5EAE8] flex flex-col space-y-2">
+          <div className="pt-2 border-t border-[#E5EAE8] flex flex-col gap-2">
             <button
               onClick={() => {
                 onOpenAuth('login');
@@ -122,17 +122,17 @@ export const Header: React.FC<HeaderProps> = ({
               }}
               className="w-full py-2 text-center text-sm font-semibold text-[#16232E] bg-[#F5F6F4] rounded-xl"
             >
-              Log In
+              تسجيل الدخول
             </button>
             <button
               onClick={() => {
                 onOpenAuth('register');
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-2.5 text-center text-sm font-bold text-[#16232E] bg-[#C6D94E] rounded-xl flex items-center justify-center space-x-1.5"
+              className="w-full py-2.5 text-center text-sm font-bold text-[#16232E] bg-[#C6D94E] rounded-xl flex items-center justify-center gap-1.5"
             >
-              <span>Start Learning</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              <span>ابدأ التعلم</span>
+              <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
             </button>
           </div>
         </div>
